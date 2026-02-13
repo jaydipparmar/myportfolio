@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Labour Contractor App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: #1e272e;
+      color: white;
+      padding: 18px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h1 {
+      font-size: 22px;
+      color: #fbc531;
+    }
+
+    /* LAYOUT */
+    .container {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    /* CARD */
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    /* STATS */
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    .stat {
+      background: #f1f2f6;
+      padding: 15px;
+      border-radius: 10px;
+      width: 30%;
+    }
+
+    .stat h3 {
+      color: #e84118;
+      font-size: 26px;
+    }
+
+    /* LABOUR LIST */
+    .labour {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f1f2f6;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .labour span {
+      font-size: 14px;
+    }
+
+    button {
+      background: #e84118;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background: #c23616;
+    }
+
+    /* FORM */
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 25px;
+      border-radius: 10px;
+      width: 300px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      color: #777;
+    }
+
+    @media(max-width: 600px) {
+      .stats {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .stat {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <h1>Labour Contractor</h1>
+    <span>Manage Workforce Easily</span>
+  </div>
+
+  <!-- MAIN -->
+  <div class="container">
+
+    <!-- DASHBOARD -->
+    <div class="card">
+      <h2>📊 Dashboard</h2>
+      <div class="stats">
+        <div class="stat">
+          <h3>18</h3>
+          <p>Total Labour</p>
+        </div>
+        <div class="stat">
+          <h3>12</h3>
+          <p>Available</p>
+        </div>
+        <div class="stat">
+          <h3>6</h3>
+          <p>Working</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- LABOUR LIST -->
+    <div class="card">
+      <h2>👷 Labour List</h2>
+
+      <div class="labour">
+        <span>Ramesh (Mason)</span>
+        <button onclick="openHire()">Hire</button>
+      </div>
+
+      <div class="labour">
+        <span>Suresh (Electrician)</span>
+        <button onclick="openHire()">Hire</button>
+      </div>
+
+      <div class="labour">
+        <span>Mahesh (Plumber)</span>
+        <button onclick="openHire()">Hire</button>
+      </div>
+
+    </div>
+
+    <!-- POST JOB -->
+    <div class="card">
+      <h2>📝 Post a Job</h2>
+      <input type="text" placeholder="Job Title">
+      <select>
+        <option>Select Skill</option>
+        <option>Mason</option>
+        <option>Electrician</option>
+        <option>Plumber</option>
+      </select>
+      <input type="number" placeholder="Number of Labour Required">
+      <button>Post Job</button>
+    </div>
+
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal" id="hireModal">
+    <div class="modal-content">
+      <h3>Hire Labour</h3>
+      <p>Confirm hiring this labour?</p><br>
+      <button onclick="closeHire()">Confirm</button>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Labour Contractor App • Frontend Project
+  </footer>
+
+  <script>
+    function openHire() {
+      document.getElementById("hireModal").style.display = "flex";
+    }
+
+    function closeHire() {
+      document.getElementById("hireModal").style.display = "none";
+      alert("Labour hired successfully!");
+    }
+  </script>
+
+</body>
+</html>
